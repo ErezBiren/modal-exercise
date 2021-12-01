@@ -1,5 +1,14 @@
 .sidebar-main {
-  background-color: green;
-  height: 70vh;
-  left: 5%;
+  pointer-events: none;
+  width: 100vw;
+}
+
+.sidebar-container {
+  background-color: silver;
+  width: 5%;
+  height: 30vh;
+  left: 2%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }

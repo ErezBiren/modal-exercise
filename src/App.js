@@ -25,7 +25,7 @@ function App() {
         open={isOpenConfirm}
         hideBackdrop={false}
         handleClose={() => setIsOpenConfirm(false)}
-        // BackdropComponent={customBackdrop}
+        // BackdropComponent={<customBackdrop />}
       >
         <ConfirmComponent
           handleConfirm={() => setIsOpenConfirm(false)}

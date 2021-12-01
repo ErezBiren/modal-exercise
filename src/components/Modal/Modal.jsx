@@ -16,7 +16,7 @@ const modal = (props) => {
 
   return ReactDom.createPortal(
     <>
-      {!hideBackdrop ? <Backdrop {...props} /> : null}
+      {!hideBackdrop && BackdropComponent ? BackdropComponent : null}
       <div className="modal-root">{children}</div>
     </>,
     document.getElementById("portal")
