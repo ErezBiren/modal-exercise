@@ -4,6 +4,10 @@ import { useState } from "react";
 import "./App.css";
 import Sidebar from "./components/Sidebar/Sidebar";
 
+const customBackdrop = () => {
+  return <div className="App-custom-backdrop"></div>;
+};
+
 function App() {
   const [isOpenConfirm, setIsOpenConfirm] = useState(false);
   const [isOpenSidebar, setIsOpenSidebar] = useState(false);
@@ -21,8 +25,13 @@ function App() {
         open={isOpenConfirm}
         hideBackdrop={false}
         handleClose={() => setIsOpenConfirm(false)}
+        // BackdropComponent={customBackdrop}
       >
-        <ConfirmComponent handleConfirm={() => setIsOpenConfirm(false)} />
+        <ConfirmComponent
+          handleConfirm={() => setIsOpenConfirm(false)}
+          handleClose={() => setIsOpenConfirm(false)}
+          showCancelButton={true}
+        />
       </Modal>
 
       <Modal
@@ -33,7 +42,7 @@ function App() {
         <Sidebar />
       </Modal>
 
-      <div class="App-long-content">
+      <div className="App-long-content">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi dolor
         odio, fermentum non sapien ac, lobortis vehicula nunc. Suspendisse sit
         amet massa nec nibh bibendum semper. Vivamus turpis tellus, euismod sit

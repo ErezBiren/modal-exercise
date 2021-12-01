@@ -5,11 +5,21 @@
   min-width: 385px;
   display: flex;
   flex-direction: column;
-  align-content: space-between;
+  align-content: space-around;
+}
+
+.confirm-component-toolbox {
+  display: flex;
+  flex-direction: row-reverse;
+  padding: 0% 5%;
+}
+
+.confirm-component-close-button {
+  cursor: pointer;
 }
 
 .confirm-component-header {
-  padding: 0% 10%;
+  padding: 0% 5%;
 }
 
 .confirm-component-content {
@@ -19,7 +29,14 @@
   padding: 0% 10%;
 }
 
+.confirm-component-buttons {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 10%;
+}
+
 .confirm-component-button {
+  cursor: pointer;
   background-color: #6c5de7;
   color: white;
   font-size: 1.5rem;
