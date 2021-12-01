@@ -3,13 +3,19 @@ import { useState } from "react";
 import "./App.css";
 
 function App() {
-  const [isVisible, setIsVisible] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
     <div className="App">
-      <button onClick={() => setIsVisible(!isVisible)}>open modal</button>
+      <button onClick={() => setIsOpen(!isOpen)}>open modal</button>
 
-      <ConfirmModal visible={isVisible}>hello world</ConfirmModal>
+      <ConfirmModal
+        open={isOpen}
+        hideBackdrop={false}
+        handleClose={() => setIsOpen(false)}
+      >
+        hello world
+      </ConfirmModal>
     </div>
   );
 }
