@@ -1,0 +1,27 @@
+.confirm-component-card {
+  background-color: white;
+  border-radius: 15px;
+  padding: 10% 0%;
+  min-width: 385px;
+  display: flex;
+  flex-direction: column;
+  align-content: space-between;
+}
+
+.confirm-component-header {
+  padding: 0% 10%;
+}
+
+.confirm-component-content {
+  border-color: gainsboro;
+  border-style: solid;
+  border-width: 1px 0px 1px 0px;
+  padding: 0% 10%;
+}
+
+.confirm-component-button {
+  background-color: #6c5de7;
+  color: white;
+  font-size: 1.5rem;
+  padding: 0% 10%;
+}
