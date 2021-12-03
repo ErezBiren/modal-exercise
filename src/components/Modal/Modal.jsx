@@ -4,19 +4,13 @@ import Backdrop from "./Backdrop/Backdrop";
 import "./Modal.css";
 
 const modal = (props) => {
-  const {
-    open,
-    children,
-    handleBackdropClick,
-    hideBackdrop = false,
-    BackdropComponent = <Backdrop {...props} />,
-  } = props;
+  const { open, children, hideBackdrop = false } = props;
 
   if (!open) return null;
 
   return ReactDom.createPortal(
     <>
-      {!hideBackdrop && BackdropComponent ? BackdropComponent : null}
+      {!hideBackdrop ? <Backdrop {...props} /> : null}
       <div className="modal-root">{children}</div>
     </>,
     document.getElementById("portal")

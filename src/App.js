@@ -3,6 +3,7 @@ import Modal from "./components/Modal/Modal";
 import { useState } from "react";
 import "./App.css";
 import Sidebar from "./components/Sidebar/Sidebar";
+import ConfirmDialog from "./components/SpecificModals/ConfirmDialog/ConfirmDialog";
 
 const customBackdrop = () => {
   return <div className="App-custom-backdrop"></div>;
@@ -21,7 +22,20 @@ function App() {
         Toggle Sidebar
       </button>
 
-      <Modal
+      <ConfirmDialog
+        open={isOpenConfirm}
+        confirmCallback={() => setIsOpenConfirm(false)}
+        cancelCallback={() => setIsOpenConfirm(false)}
+      >
+        {/* <ConfirmComponent
+          handleConfirm={() => setIsOpenConfirm(false)}
+          handleClose={() => setIsOpenConfirm(false)}
+          showCancelButton={true}
+        /> */}
+        confirm erez
+      </ConfirmDialog>
+
+      {/* <Modal
         open={isOpenConfirm}
         hideBackdrop={false}
         handleClose={() => setIsOpenConfirm(false)}
@@ -32,7 +46,7 @@ function App() {
           handleClose={() => setIsOpenConfirm(false)}
           showCancelButton={true}
         />
-      </Modal>
+      </Modal> */}
 
       <Modal
         open={isOpenSidebar}
