@@ -1,0 +1,15 @@
+.dialog-container {
+  background-color: white;
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+}
+.dialog-main {
+  margin: 10px;
+  min-width: 20vw;
+  min-height: 16vh;
+  display: flex;
+  flex-direction: column;
+  justify-items: space-between;
+}

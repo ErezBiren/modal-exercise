@@ -32,6 +32,7 @@
 }
 
 .App-long-content {
+  margin-top: 1%;
   width: 460px;
 }
 
@@ -43,6 +44,10 @@
   bottom: 0;
   background-color: red;
   z-index: 1000;
+}
+
+.App-item {
+  margin-top: 1%;
 }
 
 @keyframes App-logo-spin {

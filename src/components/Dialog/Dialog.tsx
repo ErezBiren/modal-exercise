@@ -1,18 +1,21 @@
 import Modal from "../Modal/Modal";
-import DialogActions from "./DialogActions/DialogActions";
+import DialogFooter from "./DialogFooter/DialogFooter";
 import DialogContent from "./DialogContent/DialogContent";
 import DialogHeader from "./DialogHeader/DialogHeader";
+import "./Dialog.css";
 
 const Dialog = (props: any) => {
-  const { actions } = props;
+  const { children, actions } = props;
   return (
-    <div>
-      <Modal {...props}>
-        <DialogHeader />
-        <DialogContent />
-        <DialogActions actions={actions} />
-      </Modal>
-    </div>
+    <Modal {...props}>
+      <div className="dialog-container">
+        <div className="dialog-main">
+          <DialogHeader {...props} />
+          <DialogContent {...props}>{children}</DialogContent>
+          <DialogFooter actions={actions} />
+        </div>
+      </div>
+    </Modal>
   );
 };
 

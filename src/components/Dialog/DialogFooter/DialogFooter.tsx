@@ -1,4 +1,4 @@
-import "./DialogActions.css";
+import "./DialogFooter.css";
 
 export interface DialogAction {
   id: string;
@@ -14,7 +14,7 @@ const DialogActions = (props: DialgoActionsProps) => {
   const { actions } = props;
 
   return (
-    <div className="dialogActions-container">
+    <div className="dialogFooter-container">
       {actions &&
         actions?.map((action) => (
           <button key={action.id} onClick={action.callback}>

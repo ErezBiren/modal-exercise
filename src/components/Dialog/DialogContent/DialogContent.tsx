@@ -1,8 +1,8 @@
-import React, { Children } from "react";
+import "./DialogContent.css";
 
 const DialogContent = (props: any) => {
-  const { Children } = props;
-  return <div>{Children}</div>;
+  const { children } = props;
+  return <div className="dialogContent">{children}</div>;
 };
 
 export default DialogContent;

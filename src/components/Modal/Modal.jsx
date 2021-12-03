@@ -1,4 +1,3 @@
-import React from "react";
 import ReactDom from "react-dom";
 import Backdrop from "./Backdrop/Backdrop";
 import "./Modal.css";

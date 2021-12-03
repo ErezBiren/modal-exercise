@@ -3,7 +3,7 @@ import Modal from "./components/Modal/Modal";
 import { useState } from "react";
 import "./App.css";
 import Sidebar from "./components/Sidebar/Sidebar";
-import ConfirmDialog from "./components/SpecificModals/ConfirmDialog/ConfirmDialog";
+import ConfirmDialog from "./components/SpecificDialogs/ConfirmDialog/ConfirmDialog";
 
 const customBackdrop = () => {
   return <div className="App-custom-backdrop"></div>;
@@ -15,38 +15,29 @@ function App() {
 
   return (
     <div className="App">
-      <button onClick={() => setIsOpenConfirm(!isOpenConfirm)}>
+      <button
+        onClick={() => setIsOpenConfirm(!isOpenConfirm)}
+        className="App-item"
+      >
         Toggle Confirm
       </button>
-      <button onClick={() => setIsOpenSidebar(!isOpenSidebar)}>
+      <button
+        onClick={() => setIsOpenSidebar(!isOpenSidebar)}
+        className="App-item"
+      >
         Toggle Sidebar
       </button>
 
+      {/* specific confirm dialog that using generic Dialog component that uses the Modal component*/}
       <ConfirmDialog
         open={isOpenConfirm}
         confirmCallback={() => setIsOpenConfirm(false)}
         cancelCallback={() => setIsOpenConfirm(false)}
-      >
-        {/* <ConfirmComponent
-          handleConfirm={() => setIsOpenConfirm(false)}
-          handleClose={() => setIsOpenConfirm(false)}
-          showCancelButton={true}
-        /> */}
-        confirm erez
-      </ConfirmDialog>
-
-      {/* <Modal
-        open={isOpenConfirm}
-        hideBackdrop={false}
         handleClose={() => setIsOpenConfirm(false)}
-        // BackdropComponent={<customBackdrop />}
-      >
-        <ConfirmComponent
-          handleConfirm={() => setIsOpenConfirm(false)}
-          handleClose={() => setIsOpenConfirm(false)}
-          showCancelButton={true}
-        />
-      </Modal> */}
+        contentText="What do you get when you multiply 6 by 7?"
+        title="42"
+        showCancelButton="true"
+      />
 
       <Modal
         open={isOpenSidebar}
@@ -56,7 +47,11 @@ function App() {
         <Sidebar />
       </Modal>
 
-      <div className="App-long-content">
+      <h4>
+        The following text is just a long content to show that the modal is
+        above the DOM and that the sidebar is sticky
+      </h4>
+      <p className="App-long-content">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi dolor
         odio, fermentum non sapien ac, lobortis vehicula nunc. Suspendisse sit
         amet massa nec nibh bibendum semper. Vivamus turpis tellus, euismod sit
@@ -145,7 +140,7 @@ function App() {
         laoreet dapibus ligula id mollis. Curabitur ultrices nunc a metus
         bibendum, sit amet feugiat tortor ultrices. Nullam dictum nunc libero,
         non sodales nibh consectetur non.
-      </div>
+      </p>
     </div>
   );
 }
