@@ -1,25 +1,33 @@
-import ConfirmComponent from "./components/ConfirmComponent/ConfirmComponent";
 import Modal from "./components/Modal/Modal";
 import { useState } from "react";
 import "./App.css";
-import Sidebar from "./components/Sidebar/Sidebar";
+import Sidebar from "./components/SpecificDialogs/Sidebar/Sidebar";
 import ConfirmDialog from "./components/SpecificDialogs/ConfirmDialog/ConfirmDialog";
 
-const customBackdrop = () => {
-  return <div className="App-custom-backdrop"></div>;
+const showAlertInWithDelay = (message: string, delay: number = 500) => {
+  setTimeout(() => {
+    alert(message);
+  }, delay);
 };
 
 function App() {
+  const [isOpenGenericModal, setIsOpenGenericModal] = useState(false);
   const [isOpenConfirm, setIsOpenConfirm] = useState(false);
   const [isOpenSidebar, setIsOpenSidebar] = useState(false);
 
   return (
     <div className="App">
       <button
+        onClick={() => setIsOpenGenericModal(!isOpenGenericModal)}
+        className="App-item"
+      >
+        Toggle a generic modal
+      </button>
+      <button
         onClick={() => setIsOpenConfirm(!isOpenConfirm)}
         className="App-item"
       >
-        Toggle Confirm
+        Toggle a specific Confirm dialog
       </button>
       <button
         onClick={() => setIsOpenSidebar(!isOpenSidebar)}
@@ -28,11 +36,24 @@ function App() {
         Toggle Sidebar
       </button>
 
-      {/* specific confirm dialog that using generic Dialog component that uses the Modal component*/}
+      <Modal
+        open={isOpenGenericModal}
+        handleClose={() => setIsOpenGenericModal(false)}
+      >
+        <h1 style={{ color: "white" }}> simple generic modal</h1>
+      </Modal>
+
+      {/* A specific confirm dialog that uses generic Dialog component, that uses the Modal component*/}
       <ConfirmDialog
         open={isOpenConfirm}
-        confirmCallback={() => setIsOpenConfirm(false)}
-        cancelCallback={() => setIsOpenConfirm(false)}
+        confirmCallback={() => {
+          setIsOpenConfirm(false);
+          showAlertInWithDelay("You confirmed!");
+        }}
+        cancelCallback={() => {
+          setIsOpenConfirm(false);
+          showAlertInWithDelay("You canceled!");
+        }}
         handleClose={() => setIsOpenConfirm(false)}
         contentText="What do you get when you multiply 6 by 7?"
         title="42"
@@ -141,6 +162,7 @@ function App() {
         bibendum, sit amet feugiat tortor ultrices. Nullam dictum nunc libero,
         non sodales nibh consectetur non.
       </p>
+      <div id="portal"></div>
     </div>
   );
 }

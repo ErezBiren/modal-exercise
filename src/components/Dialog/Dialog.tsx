@@ -5,13 +5,13 @@ import DialogHeader from "./DialogHeader/DialogHeader";
 import "./Dialog.css";
 
 const Dialog = (props: any) => {
-  const { children, actions } = props;
+  const { children, actions, ...otherProps } = props;
   return (
-    <Modal {...props}>
+    <Modal {...otherProps}>
       <div className="dialog-container">
         <div className="dialog-main">
-          <DialogHeader {...props} />
-          <DialogContent {...props}>{children}</DialogContent>
+          <DialogHeader {...otherProps} />
+          <DialogContent {...otherProps}>{children}</DialogContent>
           <DialogFooter actions={actions} />
         </div>
       </div>

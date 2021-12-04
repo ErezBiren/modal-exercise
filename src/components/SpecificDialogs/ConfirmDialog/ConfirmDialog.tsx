@@ -1,8 +1,13 @@
 import Dialog from "../../Dialog/Dialog";
 
 const ConfirmDialog = (props: any) => {
-  const { contentText, confirmCallback, showCancelButton, cancelCallback } =
-    props;
+  const {
+    contentText,
+    confirmCallback,
+    showCancelButton,
+    cancelCallback,
+    ...otherProps
+  } = props;
 
   let confirmActions = [
     {
@@ -11,7 +16,7 @@ const ConfirmDialog = (props: any) => {
       callback: confirmCallback,
     },
   ];
-  
+
   if (showCancelButton) {
     confirmActions = [
       {
@@ -24,7 +29,7 @@ const ConfirmDialog = (props: any) => {
   }
 
   return (
-    <Dialog actions={confirmActions} {...props}>
+    <Dialog actions={confirmActions} {...otherProps}>
       <div>{contentText}</div>
     </Dialog>
   );
