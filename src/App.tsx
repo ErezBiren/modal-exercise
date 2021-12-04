@@ -3,6 +3,7 @@ import { useState } from "react";
 import "./App.css";
 import Sidebar from "./components/SpecificDialogs/Sidebar/Sidebar";
 import ConfirmDialog from "./components/SpecificDialogs/ConfirmDialog/ConfirmDialog";
+import Dialog from "./components/Dialog/Dialog";
 
 const showAlertInWithDelay = (message: string, delay: number = 500) => {
   setTimeout(() => {
@@ -14,6 +15,7 @@ function App() {
   const [isOpenGenericModal, setIsOpenGenericModal] = useState(false);
   const [isOpenConfirm, setIsOpenConfirm] = useState(false);
   const [isOpenSidebar, setIsOpenSidebar] = useState(false);
+  const [isOpenCustomDialog, setIsOpenCustomDialog] = useState(false);
 
   const [position, setPosition] = useState<
     "center" | "left" | "top" | "right" | "bottom"
@@ -42,6 +44,25 @@ function App() {
         className="App-item"
       >
         Toggle Sidebar
+      </button>
+
+      <div>
+        side bar position
+        <select value={position} onChange={handlePositionChanged}>
+          <option value="center">center</option>
+          <option value="left">left</option>
+          <option value="top">top</option>
+          <option value="right">right</option>
+          <option value="bottom">bottom</option>
+        </select>
+      </div>
+
+
+      <button
+        onClick={() => setIsOpenCustomDialog(!isOpenCustomDialog)}
+        className="App-item"
+      >
+        Toggle Custom Dialog
       </button>
 
       <Modal
@@ -79,17 +100,15 @@ function App() {
         <Sidebar position={position} />
       </Modal>
 
-      <div>
-        side bar position
-        <select value={position} onChange={handlePositionChanged}>
-          <option value="center">center</option>
-          <option value="left">left</option>
-          <option value="top">top</option>
-          <option value="right">right</option>
-          <option value="bottom">bottom</option>
-        </select>
-      </div>
+      <Dialog
+        open={isOpenCustomDialog}
+        handleClose={() => setIsOpenCustomDialog(false)}
+        dialogHeader={<h1>custom header</h1>}
+        dialogContent={<h1>custom content</h1>}
+        dialogFooter={<h1>custom footer</h1>}
+      ></Dialog>
 
+     
       <h4>
         The following text is just a long content to show that the modal is
         above the DOM and that the sidebar is sticky

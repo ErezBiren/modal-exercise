@@ -2,7 +2,7 @@ import "./DialogHeader.css";
 
 export interface DialogHeaderProps {
   handleClose?: () => void;
-  title: string;
+  title?: string;
 }
 
 const DialogHeader = (props: DialogHeaderProps) => {
