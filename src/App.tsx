@@ -15,6 +15,14 @@ function App() {
   const [isOpenConfirm, setIsOpenConfirm] = useState(false);
   const [isOpenSidebar, setIsOpenSidebar] = useState(false);
 
+  const [position, setPosition] = useState<
+    "center" | "left" | "top" | "right" | "bottom"
+  >("center");
+
+  const handlePositionChanged = (e: any) => {
+    setPosition(e.target.value);
+  };
+
   return (
     <div className="App">
       <button
@@ -37,7 +45,7 @@ function App() {
       </button>
 
       <Modal
-         open={isOpenGenericModal}
+        open={isOpenGenericModal}
         handleClose={() => setIsOpenGenericModal(false)}
       >
         <h1 style={{ color: "white" }}> simple generic modal</h1>
@@ -57,16 +65,30 @@ function App() {
         handleClose={() => setIsOpenConfirm(false)}
         contentText="What do you get when you multiply 6 by 7?"
         title="42"
-        showCancelButton={true}
+        showCancelButton
+        color="rgba(19, 131, 223, 0.7)"
       />
 
+      {/* Side bar example */}
       <Modal
         open={isOpenSidebar}
-        hideBackdrop={true}
+        hideBackdrop
         handleClose={() => setIsOpenSidebar(false)}
+        position={position}
       >
-        <Sidebar />
+        <Sidebar position={position} />
       </Modal>
+
+      <div>
+        side bar position
+        <select value={position} onChange={handlePositionChanged}>
+          <option value="center">center</option>
+          <option value="left">left</option>
+          <option value="top">top</option>
+          <option value="right">right</option>
+          <option value="bottom">bottom</option>
+        </select>
+      </div>
 
       <h4>
         The following text is just a long content to show that the modal is

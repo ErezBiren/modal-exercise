@@ -1,10 +1,11 @@
+import { FC } from "react";
 import "./DialogContent.css";
 
 export interface DialogContentProps {
   children: any;
 }
 
-const DialogContent = (props: DialogContentProps) => {
+const DialogContent: React.FC<DialogContentProps> = (props) => {
   const { children } = props;
   return <div className="dialogContent">{children}</div>;
 };
