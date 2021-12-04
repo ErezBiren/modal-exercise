@@ -17,7 +17,7 @@ function App() {
 
   const [position, setPosition] = useState<
     "center" | "left" | "top" | "right" | "bottom"
-  >("center");
+  >("left");
 
   const handlePositionChanged = (e: any) => {
     setPosition(e.target.value);

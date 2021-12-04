@@ -6,6 +6,7 @@ import "./Modal.css";
 
 export interface ModalProps extends BackdropProps {
   hideBackdrop?: boolean;
+  backdrop?: HTMLElement;
   open: boolean;
   position?: keyof typeof OpenPositions;
 }
@@ -23,27 +24,27 @@ export const OpenPositions = {
     left: "0",
     translate: "translate(0,0)",
     height: "100vh",
-    width: "20vw",
+    width: "auto",
   },
   right: {
     top: "0",
     left: "100%",
     translate: "translate(-100%,0)",
     height: "100vh",
-    width: "20vw",
+    width: "auto",
   },
   top: {
     top: "0",
     left: "0",
     translate: "translate(0,0)",
-    height: "10vh",
+    height: "auto",
     width: "100vw",
   },
   bottom: {
     top: "100%",
     left: "0",
     translate: "translate(0,-100%)",
-    height: "10vh",
+    height: "auto",
     width: "100vw",
   },
 };
