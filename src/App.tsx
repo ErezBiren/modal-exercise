@@ -57,7 +57,6 @@ function App() {
         </select>
       </div>
 
-
       <button
         onClick={() => setIsOpenCustomDialog(!isOpenCustomDialog)}
         className="App-item"
@@ -100,15 +99,15 @@ function App() {
         <Sidebar position={position} />
       </Modal>
 
+      {/* custom dialog example example */}
       <Dialog
         open={isOpenCustomDialog}
         handleClose={() => setIsOpenCustomDialog(false)}
-        dialogHeader={<h1>custom header</h1>}
+        dialogHeader={<h1 style={{ color: "red" }}>custom header</h1>}
         dialogContent={<h1>custom content</h1>}
         dialogFooter={<h1>custom footer</h1>}
       ></Dialog>
 
-     
       <h4>
         The following text is just a long content to show that the modal is
         above the DOM and that the sidebar is sticky
