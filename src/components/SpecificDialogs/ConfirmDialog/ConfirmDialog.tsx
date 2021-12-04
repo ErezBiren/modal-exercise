@@ -16,11 +16,20 @@ const ConfirmDialog = (props: ConfirmDialogProps) => {
     ...otherProps
   } = props;
 
+  const buttonStyles = {
+    color: "white",
+    border: 0,
+    boxshadow: "none",
+    background: "purple",
+    "&:hover": { background: "green" },
+  };
+
   let confirmActions = [
     {
       id: "1",
       name: "Confirm",
       callback: confirmCallback,
+      style: buttonStyles,
     },
   ];
 
@@ -30,6 +39,7 @@ const ConfirmDialog = (props: ConfirmDialogProps) => {
         id: "2",
         name: "Cancel",
         callback: cancelCallback,
+        style: buttonStyles,
       },
       ...confirmActions,
     ];

@@ -1,9 +1,11 @@
+import { CSSProperties } from "react";
 import "./DialogFooter.css";
 
 export interface DialogAction {
   id: string;
   name: string;
   callback: () => void;
+  style?: CSSProperties | undefined;
 }
 
 export interface DialgoActionsProps {
@@ -17,7 +19,11 @@ const DialogActions = (props: DialgoActionsProps) => {
     <div className="dialogFooter-container">
       {actions &&
         actions?.map((action) => (
-          <button key={action.id} onClick={action.callback}>
+          <button
+            key={action.id}
+            onClick={action.callback}
+            style={action.style}
+          >
             {action.name}
           </button>
         ))}
