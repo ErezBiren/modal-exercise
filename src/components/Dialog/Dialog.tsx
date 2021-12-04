@@ -1,10 +1,15 @@
-import Modal from "../Modal/Modal";
-import DialogFooter from "./DialogFooter/DialogFooter";
+import Modal, { ModalProps } from "../Modal/Modal";
+import DialogFooter, { DialgoActionsProps } from "./DialogFooter/DialogFooter";
 import DialogContent from "./DialogContent/DialogContent";
-import DialogHeader from "./DialogHeader/DialogHeader";
+import DialogHeader, { DialogHeaderProps } from "./DialogHeader/DialogHeader";
 import "./Dialog.css";
 
-const Dialog = (props: any) => {
+export interface DialogProps
+  extends ModalProps,
+    DialgoActionsProps,
+    DialogHeaderProps {}
+
+const Dialog: React.FC<DialogProps> = (props) => {
   const { children, actions, ...otherProps } = props;
   return (
     <Modal {...otherProps}>

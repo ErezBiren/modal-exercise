@@ -1,8 +1,13 @@
 import ReactDom from "react-dom";
-import Backdrop from "./Backdrop/Backdrop";
+import Backdrop, { BackdropProps } from "./Backdrop/Backdrop";
 import "./Modal.css";
 
-const modal = (props: any) => {
+export interface ModalProps extends BackdropProps {
+  hideBackdrop?: boolean;
+  open: boolean;
+}
+
+const modal: React.FC<ModalProps> = (props) => {
   const { open, children, hideBackdrop = false, ...otherProps } = props;
 
   if (!open) return null;

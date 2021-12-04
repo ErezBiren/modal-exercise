@@ -1,6 +1,10 @@
 import "./DialogContent.css";
 
-const DialogContent = (props: any) => {
+export interface DialogContentProps {
+  children: any;
+}
+
+const DialogContent = (props: DialogContentProps) => {
   const { children } = props;
   return <div className="dialogContent">{children}</div>;
 };

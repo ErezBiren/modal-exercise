@@ -37,7 +37,7 @@ function App() {
       </button>
 
       <Modal
-        open={isOpenGenericModal}
+         open={isOpenGenericModal}
         handleClose={() => setIsOpenGenericModal(false)}
       >
         <h1 style={{ color: "white" }}> simple generic modal</h1>
@@ -57,7 +57,7 @@ function App() {
         handleClose={() => setIsOpenConfirm(false)}
         contentText="What do you get when you multiply 6 by 7?"
         title="42"
-        showCancelButton="true"
+        showCancelButton={true}
       />
 
       <Modal

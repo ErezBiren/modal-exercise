@@ -3,11 +3,11 @@ import "./DialogFooter.css";
 export interface DialogAction {
   id: string;
   name: string;
-  callback: () => {};
+  callback: () => void;
 }
 
 export interface DialgoActionsProps {
-  actions: DialogAction[];
+  actions?: DialogAction[];
 }
 
 const DialogActions = (props: DialgoActionsProps) => {

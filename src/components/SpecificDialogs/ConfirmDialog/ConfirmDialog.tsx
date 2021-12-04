@@ -1,11 +1,18 @@
-import Dialog from "../../Dialog/Dialog";
+import Dialog, { DialogProps } from "../../Dialog/Dialog";
 
-const ConfirmDialog = (props: any) => {
+export interface ConfirmDialogProps extends DialogProps {
+  cancelCallback: () => void;
+  confirmCallback: () => void;
+  contentText: string;
+  showCancelButton: boolean;
+}
+
+const ConfirmDialog = (props: ConfirmDialogProps) => {
   const {
-    contentText,
-    confirmCallback,
-    showCancelButton,
     cancelCallback,
+    confirmCallback,
+    contentText,
+    showCancelButton,
     ...otherProps
   } = props;
 
