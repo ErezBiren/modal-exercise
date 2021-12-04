@@ -67,7 +67,7 @@ const Modal: React.FC<ModalProps> = (props) => {
       height: OpenPositions[position].height,
       width: OpenPositions[position].width,
     } as CSSProperties;
-  }, [props.open, props.position]);
+  }, [props.position]);
 
   if (!open) return null;
 

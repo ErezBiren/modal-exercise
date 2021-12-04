@@ -7,7 +7,7 @@ interface SidebarProps {
 const Sidebar = (props: SidebarProps) => {
   return (
     <div className="sidebar-container">
-      mocking a sidebar in position: {props.position}
+      sidebar in position: {props.position}
     </div>
   );
 };
