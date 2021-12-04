@@ -1,8 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import DialogFooter from "./DialogFooter";
 
-
-
 it("render same text passed into title props", async () => {
   render(
     <DialogFooter
@@ -14,6 +12,5 @@ it("render same text passed into title props", async () => {
     />
   );
   const buttonElements = screen.getAllByRole("button");
-  // console.log(buttonElements);
   expect(buttonElements.length).toBe(3);
 });

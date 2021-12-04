@@ -4,6 +4,8 @@ import useRoot from "../../hooks/useRoot";
 import Backdrop, { BackdropProps } from "./Backdrop/Backdrop";
 import "./Modal.css";
 
+
+
 export interface ModalProps extends BackdropProps {
   hideBackdrop?: boolean;
   backdrop?: HTMLElement;

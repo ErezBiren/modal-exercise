@@ -3,8 +3,8 @@ import Modal from "./Modal";
 
 it("backdrop should be displayed", () => {
   render(<Modal open>hello world</Modal>);
-  const children = screen.getByTitle("backdrop-root");
-  expect(children).toBeInTheDocument();
+  const backdropElement = screen.getByTitle("backdrop-root");
+  expect(backdropElement).toBeInTheDocument();
 });
 
 it("backdrop should not be displayed if hideBackdrop=true", () => {
@@ -13,6 +13,6 @@ it("backdrop should not be displayed if hideBackdrop=true", () => {
       hello world
     </Modal>
   );
-  const children = screen.queryByTitle("backdrop-root");
-  expect(children).not.toBeInTheDocument();
+  const backdropElement = screen.queryByTitle("backdrop-root");
+  expect(backdropElement).not.toBeInTheDocument();
 });
