@@ -12,7 +12,7 @@ export interface DialgoActionsProps {
   actions?: DialogAction[];
 }
 
-const DialogActions = (props: DialgoActionsProps) => {
+const DialogFooter = (props: DialgoActionsProps) => {
   const { actions } = props;
 
   return (
@@ -31,4 +31,4 @@ const DialogActions = (props: DialgoActionsProps) => {
   );
 };
 
-export default DialogActions;
+export default DialogFooter;
